@@ -1,0 +1,5 @@
+---
+k3s_version: "v1.33.4+k3s1"
+k3s_install_script: "https://get.k3s.io"
+k3s_kubeconfig: "/etc/rancher/k3s/k3s.yaml"
+k3s_token_file: "/var/lib/rancher/k3s/server/node-token"

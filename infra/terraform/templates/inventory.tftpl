@@ -1,0 +1,8 @@
+[k3s_server]
+${control_plane_public_ip} private_ip=${control_plane_private_ip}
+
+[k3s_agents]
+%{ for i, ip in worker_public_ips ~}
+${ip} private_ip=${worker_private_ips[i]}
+%{ endfor ~}
+

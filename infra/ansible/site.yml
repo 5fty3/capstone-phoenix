@@ -1,0 +1,21 @@
+---
+- name: Configure all nodes
+  hosts: all
+  become: true
+
+  roles:
+    - common
+
+- name: Install K3s server
+  hosts: k3s_server
+  become: true
+
+  roles:
+    - k3s_server
+
+- name: Install K3s agents
+  hosts: k3s_agents
+  become: true
+
+  roles:
+    - k3s_agent
