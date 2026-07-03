@@ -4,12 +4,19 @@
     path: /usr/local/bin/k3s-agent
   register: k3s_agent_binary
 
+- name: Read K3s node token from server
+  ansible.builtin.slurp:
+    src: /var/lib/rancher/k3s/server/node-token
+  delegate_to: "{{ groups['k3s_server'][0] }}"
+  register: server_node_token
+  run_once: true
+
 - name: Install K3s agent
   ansible.builtin.shell: |
     curl -sfL {{ k3s_install_script }} | \
     INSTALL_K3S_VERSION={{ k3s_version }} \
     K3S_URL=https://{{ hostvars[groups['k3s_server'][0]].private_ip }}:6443 \
-    K3S_TOKEN={{ hostvars[groups['k3s_server'][0]].node_token.content | b64decode | trim }} \
+    K3S_TOKEN={{ server_node_token.content | b64decode | trim }} \
     sh -
   args:
     executable: /bin/bash

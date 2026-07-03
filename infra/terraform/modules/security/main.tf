@@ -44,6 +44,15 @@ resource "aws_vpc_security_group_ingress_rule" "k3s_api" {
   ip_protocol = "tcp"
 }
 
+resource "aws_vpc_security_group_ingress_rule" "k3s_api_local" {
+  security_group_id = aws_security_group.k3s_cluster_sg.id
+
+  cidr_ipv4   = var.ssh_cidr
+  from_port   = 6443
+  to_port     = 6443
+  ip_protocol = "tcp"
+}
+
 resource "aws_vpc_security_group_egress_rule" "all_outbound" {
   security_group_id = aws_security_group.k3s_cluster_sg.id
 

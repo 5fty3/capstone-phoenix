@@ -65,3 +65,12 @@ resource "aws_instance" "worker_2" {
     Environment = "dev"
   }
 }
+
+resource "aws_eip" "control_plane_eip" {
+  instance = aws_instance.control_plane.id
+  domain   = "vpc"
+
+  tags = {
+    Name = "phoenix-control-plane-eip"
+  }
+}
