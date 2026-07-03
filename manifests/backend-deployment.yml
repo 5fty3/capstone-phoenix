@@ -1,4 +1,3 @@
-```yaml
 apiVersion: apps/v1
 kind: Deployment
 
@@ -104,4 +103,3 @@ spec:
               port: 5000
             initialDelaySeconds: 15
             periodSeconds: 20
-```
