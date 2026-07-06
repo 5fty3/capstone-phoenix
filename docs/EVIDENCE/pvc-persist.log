@@ -1,0 +1,34 @@
+Script started on 2026-07-06 15:54:11+00:00 [TERM="xterm-256color" TTY="/dev/pts/7" COLUMNS="184" LINES="36"]
+[?2004h]0;ubuntu@ip-10-0-1-198: ~[01;32mubuntu@ip-10-0-1-198[00m:[01;34m~[00m$ [7msudo kubectl exec -it postgres-0 -n taskapp -- sh[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csudo kubectl exec -it postgres-0 -n taskapp -- sh
+[?2004l# su - postgres
+[?2004hpostgres@postgres-0:~$ [7mpsql -U taskapp_user -d taskapp[27mpostgres@postgres-0:~$ psql -U taskapp_user -d taskapp
+[?2004lpsql (16.14 (Debian 16.14-1.pgdg13+1))
+Type "help" for help.
+
+[?2004htaskapp=# [7mSELECT * FROM persistence_test;[27mtaskapp=# SELECT * FROM persistence_test;
+[?2004l id |         message          
+----+--------------------------
+  1 | PVC persistence verified
+(1 row)
+
+[?2004htaskapp=# command terminated with exit code 137
+[?2004h]0;ubuntu@ip-10-0-1-198: ~[01;32mubuntu@ip-10-0-1-198[00m:[01;34m~[00m$ [7msudo kubectl exec -it postgres-0 -n taskapp -- sh[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csudo kubectl exec -it postgres-0 -n taskapp -- sh
+[?2004l# su - postgres
+[?2004hpostgres@postgres-0:~$ [7mpsql -U taskapp_user -d taskapp[27mpostgres@postgres-0:~$ psql -U taskapp_user -d taskapp
+[?2004lpsql (16.14 (Debian 16.14-1.pgdg13+1))
+Type "help" for help.
+
+[?2004htaskapp=# [7mSELECT * FROM persistence_test;[27mtaskapp=# SELECT * FROM persistence_test;
+[?2004l id |         message          
+----+--------------------------
+  1 | PVC persistence verified
+(1 row)
+
+[?2004htaskapp=# \q
+[?2004l[?2004hpostgres@postgres-0:~$ exit
+[?2004llogout
+# exit
+[?2004h]0;ubuntu@ip-10-0-1-198: ~[01;32mubuntu@ip-10-0-1-198[00m:[01;34m~[00m$ exit
+[?2004lexit
+
+Script done on 2026-07-06 15:59:42+00:00 [COMMAND_EXIT_CODE="0"]
